@@ -1,0 +1,8 @@
+﻿namespace NpMis.Control
+{
+    using System;
+    using System.Runtime.CompilerServices;
+
+    public delegate void EventHanderMyClick();
+}
+

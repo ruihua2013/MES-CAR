@@ -1,0 +1,192 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{2D76B438-7CD0-4394-B258-72892F471180}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>MES_Car</RootNamespace>
+    <AssemblyName>MES-Car</AssemblyName>
+    <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AttnObjects">
+      <HintPath>..\..\DLL\AttnObjects.dll</HintPath>
+    </Reference>
+    <Reference Include="Core">
+      <HintPath>..\..\DLL\Core.dll</HintPath>
+    </Reference>
+    <Reference Include="CWData">
+      <HintPath>..\..\DLL\CWData.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Data.v11.1, Version=11.1.6.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\EXE\DevExpress.Data.v11.1.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Printing.v11.1.Core, Version=11.1.6.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\EXE\DevExpress.Printing.v11.1.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Utils.v11.1, Version=11.1.6.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\EXE\DevExpress.Utils.v11.1.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraEditors.v11.1, Version=11.1.6.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\EXE\DevExpress.XtraEditors.v11.1.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraGrid.v11.1, Version=11.1.6.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\EXE\DevExpress.XtraGrid.v11.1.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraLayout.v11.1, Version=11.1.6.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\EXE\DevExpress.XtraLayout.v11.1.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraReports.v11.1, Version=11.1.6.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\EXE\DevExpress.XtraReports.v11.1.dll</HintPath>
+    </Reference>
+    <Reference Include="ICSharpMain">
+      <HintPath>..\..\DLL\ICSharpMain.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Fm_ComSet.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Fm_ComSet.Designer.cs">
+      <DependentUpon>Fm_ComSet.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Objects\ZZ_Device.cs" />
+    <Compile Include="Objects\T_Task.cs" />
+    <Compile Include="Objects\T_NP.cs" />
+    <Compile Include="UcBasetest.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UC_Device.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UC_Device.Designer.cs">
+      <DependentUpon>UC_Device.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UC_DeviceExe.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UC_DeviceExe.Designer.cs">
+      <DependentUpon>UC_DeviceExe.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UC_TaskList.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UC_TaskList.Designer.cs">
+      <DependentUpon>UC_TaskList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Login\ConnectServer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Login\Fm_Login.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form1.Designer.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Login\LoginCommand.cs" />
+    <Compile Include="Login\LoginUser.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Fm_ComSet.resx">
+      <DependentUpon>Fm_ComSet.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UC_Device.resx">
+      <DependentUpon>UC_Device.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UC_DeviceExe.resx">
+      <DependentUpon>UC_DeviceExe.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UC_TaskList.resx">
+      <DependentUpon>UC_TaskList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Login\Fm_Login.resx">
+      <DependentUpon>Fm_Login.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\Attn二次开发\WinControls\WinControls.csproj">
+      <Project>{99067CB9-E2A6-4F2B-BA07-39FD304CBA8D}</Project>
+      <Name>WinControls</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MES.LED\MES.LED.csproj">
+      <Project>{22890011-FBD1-4085-B557-D7B5561E796D}</Project>
+      <Name>MES.LED</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\NpMis\NpMis.csproj">
+      <Project>{050965E3-34BC-4943-B793-D7CD505918E6}</Project>
+      <Name>NpMis</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
