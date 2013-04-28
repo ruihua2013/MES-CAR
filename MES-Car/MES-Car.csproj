@@ -37,13 +37,13 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="AttnObjects">
-      <HintPath>..\..\DLL\AttnObjects.dll</HintPath>
+      <HintPath>..\..\EXE\AttnObjects.dll</HintPath>
     </Reference>
     <Reference Include="Core">
-      <HintPath>..\..\DLL\Core.dll</HintPath>
+      <HintPath>..\..\EXE\Core.dll</HintPath>
     </Reference>
     <Reference Include="CWData">
-      <HintPath>..\..\DLL\CWData.dll</HintPath>
+      <HintPath>..\..\EXE\CWData.dll</HintPath>
     </Reference>
     <Reference Include="DevExpress.Data.v11.1, Version=11.1.6.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -74,7 +74,7 @@
       <HintPath>..\..\EXE\DevExpress.XtraReports.v11.1.dll</HintPath>
     </Reference>
     <Reference Include="ICSharpMain">
-      <HintPath>..\..\DLL\ICSharpMain.dll</HintPath>
+      <HintPath>..\..\EXE\ICSharpMain.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -82,6 +82,9 @@
     <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
+    <Reference Include="WinControls">
+      <HintPath>..\..\EXE\WinControls.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Fm_ComSet.cs">
@@ -168,10 +171,6 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\..\Attn二次开发\WinControls\WinControls.csproj">
-      <Project>{99067CB9-E2A6-4F2B-BA07-39FD304CBA8D}</Project>
-      <Name>WinControls</Name>
-    </ProjectReference>
     <ProjectReference Include="..\MES.LED\MES.LED.csproj">
       <Project>{22890011-FBD1-4085-B557-D7B5561E796D}</Project>
       <Name>MES.LED</Name>

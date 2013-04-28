@@ -63,7 +63,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Common">
-      <HintPath>..\DLL\Common.dll</HintPath>
+      <HintPath>..\..\EXE\Common.dll</HintPath>
     </Reference>
     <Reference Include="CrystalDecisions.CrystalReports.Engine">
       <Name>CrystalDecisions.CrystalReports.Engine</Name>
@@ -78,7 +78,7 @@
       <Name>CrystalDecisions.Windows.Forms</Name>
     </Reference>
     <Reference Include="Interop.Excel">
-      <HintPath>..\DLL\Interop.Excel.dll</HintPath>
+      <HintPath>..\..\EXE\Interop.Excel.dll</HintPath>
       <EmbedInteropTypes>True</EmbedInteropTypes>
     </Reference>
     <Reference Include="System">
