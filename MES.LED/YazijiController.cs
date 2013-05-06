@@ -10,6 +10,7 @@ namespace MES.LED
     {
         private static readonly int WaitTime = 500;
         private static readonly string CurrentTotalFormat = "{0}-{1}";
+        private static readonly string CurrentTotalStepFormat = "{0}-{1}-{2}";
         LEDHelper led;
         public YazijiController(string ip)
         {
@@ -91,7 +92,14 @@ namespace MES.LED
             //2，发送当前计数,格式：m-n,其中m为当前车牌计数,n为当前任务总数
             if (chepai.CurrentIndex > 0 && chepai.Total > 0)
             {
-                pack.Content = string.Format(CurrentTotalFormat, chepai.CurrentIndex, chepai.Total);
+                if (string.IsNullOrEmpty(chepai.CurrentStep))
+                {
+                    pack.Content = string.Format(CurrentTotalStepFormat, chepai.Total, chepai.CurrentIndex, chepai.CurrentStep);
+                }
+                else
+                {
+                    pack.Content = string.Format(CurrentTotalFormat, chepai.Total, chepai.CurrentIndex);
+                }
                 pack.ContentColor = chepai.NextTextColor;
                 pack.ContentOrder = ++orderNo;
                 pack.RegionNo = 2;
@@ -106,6 +114,46 @@ namespace MES.LED
                 pack.RegionNo = 2;
                 led.SendMessage(pack);
             }
+            led.Close();
+            return reVal;
+        }
+        /// <summary>
+        /// 发送信息
+        /// </summary>
+        /// <param name="message"></param>
+        /// <returns></returns>
+        public bool Send(string message)
+        {
+            return Send(
+                new YazijiStringModel()
+                {
+                    Message = message,
+                    MessageColor = LEDTextColor.Red,
+                    Region = YazijiLEDRegion.Top
+                }
+                );
+        }
+        /// <summary>
+        /// 发送信息
+        /// </summary>
+        /// <param name="message"></param>
+        /// <returns></returns>
+        public bool Send(YazijiStringModel message)
+        {
+            if (message == null || string.IsNullOrEmpty(message.Message))
+            {
+                throw new ArgumentException("发送内容不能为空");
+            }
+            bool reVal = false;
+            int orderNo = 0;
+            //1，发送当前做的车牌
+            LEDSendPackage pack = new LEDSendPackage(LEDCommandType.Send);
+            pack.Content = message.Message;
+            pack.ContentColor = message.MessageColor;
+            pack.RegionNo = (message.Region == YazijiLEDRegion.Top) ? 1 : 2;
+            pack.ContentOrder = ++orderNo;
+            led.Open(YazijiIPAddress);
+            led.SendMessage(pack);
             led.Close();
             return reVal;
         }
@@ -147,5 +195,41 @@ namespace MES.LED
         /// 当前任务车牌总数
         /// </summary>
         public int Total { get; set; }
+        /// <summary>
+        /// 当前车牌压制步骤
+        /// </summary>
+        public string CurrentStep { get; set; }
+    }
+
+
+    public class YazijiStringModel
+    {
+        /// <summary>
+        /// 信息内容
+        /// </summary>
+        public string Message { get; set; }
+        /// <summary>
+        /// 信息颜色
+        /// </summary>
+        public LEDTextColor MessageColor { get; set; }
+        /// <summary>
+        /// 发送到的分区（上，下）
+        /// </summary>
+        public YazijiLEDRegion Region { get; set; }
+    }
+
+    /// <summary>
+    /// 压字机的LED分区
+    /// </summary>
+    public enum YazijiLEDRegion
+    {
+        /// <summary>
+        /// 上分区
+        /// </summary>
+        Top = 0,
+        /// <summary>
+        /// 下分区
+        /// </summary>
+        Bottom = 1
     }
 }
